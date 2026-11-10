@@ -12,10 +12,14 @@ La ricevitoria offre questi servizi ai clienti in convenzione con PuntoPoste e p
 - L'APP deve permettere un rapido accesso all'elenco dei pacchi in GIACENZA. Un pacco è in giacenza se è attualmente presso l'esercizio commerciale in quanto
   - va consegnato al cliente destinatario (ARRIVI)
   - va consegnato al corriere per la spedizione (PARTEBZE)
-
+- L'APP permette l'edit dei campi registrati con telecamera per integrazionio correzioni; permette altresì, previa conferma, la cancellazione di un pacco
+- L'APP permette la funzione di uscita con valorizzazionr automatica di data e ora di un pacco che vuol dire consegna al cliente o al corriere
+- 
   
 ### Funzioni nuove
 Come descritto 
+
+- Diminuire il più possibile numero di click che l'operatore deve eseguire. Esempio ora per dichiarare l'uscita di un pacco bisogna arrivare all'elenco, selezionare un pacco e poi cliccare sull'icona di uscita
 
 ### Altro
 - Ogni scansione o modifica manuale tramite App va prima salvata in locale e poi sincronizzata in background con il cloud
@@ -38,10 +42,11 @@ Una prima versione funzionante dell'App è stata già realizzata  con AppSheet +
 Di seguito si descrive tale app, si veda [AppSheet](AppSheet/) per relativi screenshot
 
 L'App ha tre menù principali (Primary Navigation)
-| Menù | Descrizione |
-| --- | --- | 
-| Giacenza | Visualizza un grafico a barre indicante le quantità di pacchi in magazzino ossia presenti presso l'esercizio commerciale; il grafico è raggruppato per servizio(all'epoca PuntoPoste e Inpost e per tipologia di pacco: Arrivo (da dare al cliente), Partenza (da dare al corriere) | [AppSheet](AppSheet/Giacenze1.jpg)
-
+| Menù | Descrizione | Screenshot |
+| --- | --- | --- |
+| Giacenza | Visualizza un grafico a barre indicante le quantità di pacchi in magazzino ossia presenti presso l'esercizio commerciale; il grafico è raggruppato per servizio(all'epoca PuntoPoste e Inpost e per tipologia di pacco: Arrivo (da dare al cliente), Partenza (da dare al corriere) | [AppSheet](AppSheet/Giacenze1.jpg) |
+| ^        | Cliccando su una barra si accede all'elenco dei pacchi in giacenza per quel servizio e tipo | [AppSheet](AppSheet/Giacenze2.jpg) |
+| ^        | Selezionando un pacco si può procedere con EDIT dei campi, con CANCELLAZIONE o con la funzoine veloce USCITA | [AppSheet](AppSheet/Giacenze3.jpg) |
 -  Visualizza
 - Riepilogo
 - Archivio
