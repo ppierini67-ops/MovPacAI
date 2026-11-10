@@ -5,6 +5,21 @@ La ricevitoria offre questi servizi ai clienti in convenzione con PuntoPoste e p
 - ARRIVI Un cliente che deve ricevere un pacco perchè acquistato su Amazon, Vinted, Subito o su altre piattaforme può scegliere che il pacco gli venga recapitato presso il PuntoPoste. Si presenterà dall'esercente con un codice per il ritiro e lo preleverà
 - PARTENZE Un cliente che deve spedire un pacco per vendita su Vinted, Subito o altre piattaforme o per reso Amazon può portarlo presso il PuntoPoste per la spedizione opportutamente corredato di etichetta (cartacea o digitale). L'esercente provvederà alal presa in carico e successivamente alla consegna ai corrieri di spedizione.
 
+| | | | GIACENZA | | |  | 
+| -- | -- | -- | -- | -- | -- | -- |
+| Il cliente porta un pacco da spedire | >> | Registrazione <br> Presa in carico | PARTENZE | Registrazione <br> Uscita | >> | Consegna al corriere |
+| Il corriere porta un pacco da consegnare | >> | Registrazione <br> Presa in carico | ARRIVI | Registrazione <br> Uscita | >> | Consegna al cliente |
+
+Diversi gestori da gestire
+
+| Servizio Spedizione | PATENZE | ARRIVI | |
+| -------------- | --- | --- | --- |
+| Poste          | X | X | Da implementare |
+| Inpost         |   |   | Dismesso        |
+| Bartolini      |   |   | Possibile futuro nuovo servizio |
+| ecc            |   |   | Possibile futuro nuovo servizio |
+| Pacco cortesia | X | X | Pacco fatto arrivare all'indirizzo dell'esercizio commerciale ma non gestito ufficialmente |
+
 ## Funzionalità APP
 ### Funzioni base operatore
 - L'APP deve leggere con la telecamera dello smartphone i barcode e i qrcode stampati sulla etichetta di arrivo o partenza e registrare i campi su un database (anche un semplice foglio CSV o excel o sheet Google)
@@ -44,9 +59,9 @@ Di seguito si descrive tale app, si veda [AppSheet](AppSheet/) per relativi scre
 L'App ha tre menù principali (Primary Navigation)
 | Menù | Descrizione | Screenshot |
 | --- | --- | --- |
-| Giacenza | Visualizza un grafico a barre indicante le quantità di pacchi in magazzino ossia presenti presso l'esercizio commerciale; il grafico è raggruppato per servizio(all'epoca PuntoPoste e Inpost e per tipologia di pacco: Arrivo (da dare al cliente), Partenza (da dare al corriere) | [AppSheet](AppSheet/Giacenze1.jpg) |
-| ^        | Cliccando su una barra si accede all'elenco dei pacchi in giacenza per quel servizio e tipo | [AppSheet](AppSheet/Giacenze2.jpg) |
-| ^        | Selezionando un pacco si può procedere con EDIT dei campi, con CANCELLAZIONE o con la funzoine veloce USCITA | [AppSheet](AppSheet/Giacenze3.jpg) |
+| Giacenza | Visualizza un grafico a barre indicante le quantità di pacchi in magazzino ossia presenti presso l'esercizio commerciale; il grafico è raggruppato per servizio(all'epoca PuntoPoste e Inpost e per tipologia di pacco: Arrivo (da dare al cliente), Partenza (da dare al corriere) | [Giacenze1.jpg](AppSheet/Giacenze1.jpg) |
+| ^        | Cliccando su una barra si accede all'elenco dei pacchi in giacenza per quel servizio e tipo | [Giacenze2.jpg](AppSheet/Giacenze2.jpg) |
+| ^        | Selezionando un pacco si può procedere con EDIT dei campi, con CANCELLAZIONE o con la funzoine veloce USCITA | [Giacenze3.jpg](AppSheet/Giacenze3.jpg) |
 -  Visualizza
 - Riepilogo
 - Archivio
