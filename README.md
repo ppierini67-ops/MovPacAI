@@ -29,4 +29,4 @@ Quelli che seguono sono suggerimenti per quanto è stato fatto e ricercato fino 
 - Archiviazione su Firestore
 
 ### Versione pregressa
-Una prima versione funzionante dell'App è stata già realizzata  con AppSheet + GoogleSheet
+Una prima versione funzionante dell'App è stata già realizzata  con AppSheet + GoogleSheet, si veda [AppSheet](AppSheet/)
