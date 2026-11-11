@@ -51,16 +51,19 @@ Diversi gestori da gestire
 ### Funzioni nuove
 Lo sviluppo dell'APP può considerare le funzionalità del prototipo fatto con AppSheet, vedi [Versione pregressa](#versione-pregressa), apportando però almeno le seguenti migliorie
 
-**Scan Ingresso/Uscite** 
-Attualmente la funzione di scan serve solo per le registrazioni pacco in arrivo nella ricevitoria con identificazoine automatica del Codice letto da abr-code. Si vuole che:
-- 
+Scan Ingresso/Uscite
+Attualmente la funzione di scan serve solo per le registrazioni pacco in arrivo nella ricevitoria con identificazoine automatica del Codice letto da bar-code. Si vuole che:
+- La fotocamera possa leggere, oltre ai bar-code con il Codice, anche i QRCode, dove presenti, che riportano maggiori informazioni (es mittente, destinatario, ..). Con i dati letti si valorizzano i campi di un record che va confermato dall'operatore previa eventuale aggiunta di informazioni.
+- La fotocamera sia uscita anche per la funzione di uscita. Quindi un pacco può uscire in due modi:
+  - Si arriva al dettaglio del pacco e si usa la funzione "Uscita" che valorizza la "Data uscita" e quindi di fatto toglie il pacco dalle giacenze
+  - Si Seleziona dalla schermata principale "Uscita Pacchi", si attiva la telecamera con cui si inquadra l'etichetta, il sistema identifica il record nella base dati delle giacenze e valorizza l'uscita. Se il pacco non viene trovato un messaggio di errore segnala il fatto.
 
-**Razionalizzazione**
+Razionalizzazione
 - Razionalizzare i menù: le funzioni Giacenze e Archivio sostanzialmente accedono alla stessa base dati mostrando uno i pacchi ancora in giacenza per cui non è stata fatta la chiusura ed uno la totalità dei pacchi. Valutare l'unificazione dei due menù con
   - possibilità di filtro veloce per passare da Giacenze (record con data_chiusura null) a Archivio (tutti)
   - default di visualizzazione impostato su Giacenze dato che sono i pacchi che l'esercente deve ancora lavorare
 - Diminuire il più possibile numero di click che l'operatore deve eseguire. Esempio ora per dichiarare l'uscita di un pacco bisogna arrivare all'elenco, selezionare un pacco e poi cliccare sull'icona di uscita
-- Attualmente la funzione di scan (solo per le entrate) è fruibile dal menù Giacenze. Potrebbe essere portata in primo piano sulla schermata di default dell'App con pulsanti chiari, grandi e accessibili e affiancata dalla funzione di uscita tramite scan.
+- Attualmente la funzione di scan (solo per le "Entrate Pacchi") è fruibile dal menù Giacenze. Potrebbe essere portata in primo piano sulla schermata di default dell'App con pulsanti chiari, grandi e accessibili e affiancata dalla funzione di "Uscita Pacchi" tramite scan.
 
 ### Altro
 - Ogni scansione o modifica manuale tramite App va prima salvata in locale e poi sincronizzata in background con il cloud
@@ -87,10 +90,16 @@ L'App ha tre menù principali (Primary Navigation)
 - Riepilogo
 - Archivio
 
-e tre menù secondari (non in primo piano visibili ma accessibili da "..." in alto della finestra
+tre menù secondari (non in primo piano visibili ma accessibili da "..." in alto della finestra
 - Statistiche
 - Statistiche trimestrali
 - About
+
+alcune funzioni fruibili tramite "pulsanti azione"
+- "+" = aggiungi pacco
+- icona del camion = uscita pacco
+- cancella record
+- edit record
   
 | Menù | Descrizione | Screenshot |
 | --------- | --- | --- |
@@ -100,9 +109,11 @@ e tre menù secondari (non in primo piano visibili ma accessibili da "..." in al
 | Riepilogo | Mostra per ciascun tipologia (es "Poste Arrivi", "Poste PArtenze", "Inpost Arrivi", ..) il totale dei pacchi registrati tramite l'app e il totale dei pacchi in giacenza | [Riepilogo1.jpg](AppSheet/Riepilogo1.jpg) | 
 | Archivio  | Funzione simile a Giacenze ma mostra tutti i pacchi piuttosto che solo le Giacenze. Parte da un menù riepilogativo e poi permette l'accesso alla lista dei pacchi e al dettaglio | [Archivio1.jpg](AppSheet/Archivio1.jpg) [Archivio2.jpg](AppSheet/Archivio2.jpg)  |
 | ^         | Dal dettaglio di un pacco è possibile Modifica, Cancellazione del record o operazione di Uscita se il pacco è tra quelli ancora in giacenza | [Archivio3.jpg](AppSheet/Archivio3.jpg)  |
-| Statistiche |
-| Statistiche trimestrali |
-| About | Informazioni sull'app |
+| Statistiche | FAREEEEEEEEEEEEEEEEEE |
+| Statistiche trimestrali | FAREEEEEEEEEEEEEEEEEE |
+| About | Informazioni sull'app | FAREEEEEEEEEEEEEEEEEE |
+| "+" = aggiungi pacco | FAREEEEEEEEEEEEEEEEEE |
+icona del camion = uscita pacco | FAREEEEEEEEEEEEEEEEEE |
 
   
 ## Alternative Commerciali
