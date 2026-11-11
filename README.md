@@ -28,12 +28,15 @@ Diversi gestori da gestire
   - va consegnato al cliente destinatario (ARRIVI)
   - va consegnato al corriere per la spedizione (PARTEBZE)
 - L'APP permette l'edit dei campi registrati con telecamera per integrazionio correzioni; permette altresì, previa conferma, la cancellazione di un pacco
-- L'APP permette la funzione di uscita con valorizzazionr automatica di data e ora di un pacco che vuol dire consegna al cliente o al corriere
+- L'APP permette la funzione di uscita con valorizzazione automatica di data e ora di un pacco che vuol dire consegna al cliente o al corriere
 - 
   
 ### Funzioni nuove
-Come descritto 
+L'APP deve ricalcare le funzionalità del prototipo fatto con AppSheet, vedi [Versione pregressa](#versione-pregressa), apportando però almeno le seguenti migliorie
 
+- Razionalizzare i menù: le funzioni Giacenze e Archivio sostanzialmente accedono alla stessa base dati mostrando uno i pacchi ancora in giacenza per cui non è stata fatta la chiusura ed uno la totalità dei pacchi. Valutare l'unificazione dei due menù con
+  - possibilità di filtro veloce per passare da Giacenze (record con data_chiusura null) a Archivio (tutti)
+  - default di visualizzazione impostato su Giacenze dato che sono i pacchi che l'esercente deve ancora lavorare
 - Diminuire il più possibile numero di click che l'operatore deve eseguire. Esempio ora per dichiarare l'uscita di un pacco bisogna arrivare all'elenco, selezionare un pacco e poi cliccare sull'icona di uscita
 
 ### Altro
