@@ -49,12 +49,18 @@ Diversi gestori da gestire
 - 
   
 ### Funzioni nuove
-L'APP deve ricalcare le funzionalità del prototipo fatto con AppSheet, vedi [Versione pregressa](#versione-pregressa), apportando però almeno le seguenti migliorie
+Lo sviluppo dell'APP può considerare le funzionalità del prototipo fatto con AppSheet, vedi [Versione pregressa](#versione-pregressa), apportando però almeno le seguenti migliorie
 
+**Scan Ingresso/Uscite** 
+Attualmente la funzione di scan serve solo per le registrazioni pacco in arrivo nella ricevitoria con identificazoine automatica del Codice letto da abr-code. Si vuole che:
+- 
+
+**Razionalizzazione**
 - Razionalizzare i menù: le funzioni Giacenze e Archivio sostanzialmente accedono alla stessa base dati mostrando uno i pacchi ancora in giacenza per cui non è stata fatta la chiusura ed uno la totalità dei pacchi. Valutare l'unificazione dei due menù con
   - possibilità di filtro veloce per passare da Giacenze (record con data_chiusura null) a Archivio (tutti)
   - default di visualizzazione impostato su Giacenze dato che sono i pacchi che l'esercente deve ancora lavorare
 - Diminuire il più possibile numero di click che l'operatore deve eseguire. Esempio ora per dichiarare l'uscita di un pacco bisogna arrivare all'elenco, selezionare un pacco e poi cliccare sull'icona di uscita
+- Attualmente la funzione di scan (solo per le entrate) è fruibile dal menù Giacenze. Potrebbe essere portata in primo piano sulla schermata di default dell'App con pulsanti chiari, grandi e accessibili e affiancata dalla funzione di uscita tramite scan.
 
 ### Altro
 - Ogni scansione o modifica manuale tramite App va prima salvata in locale e poi sincronizzata in background con il cloud
@@ -99,4 +105,8 @@ e tre menù secondari (non in primo piano visibili ma accessibili da "..." in al
 | About | Informazioni sull'app |
 
   
+## Alternative Commerciali
+Valuta queste alternative di APP per prendere idee
+
+https://www.track-pod.com/blog/free-barcode-scanner-app/
 
