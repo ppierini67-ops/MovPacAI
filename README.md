@@ -44,8 +44,6 @@ Diversi gestori da gestire
 | A           | Text | destinatario del pacco: nome del cliente che deve ricevere il pacco per gli ARRIVI; nome del destinatario della spedizione per le PARTENZE |
 | Note        | Text | eventuali altri note inserite dall'esercente |
 
-
-
 - Gestire l'elenco dei pacchi in GIACENZA. Un pacco è in giacenza se è attualmente presso l'esercizio commerciale in quanto
   - va consegnato al cliente destinatario (ARRIVI)
   - va consegnato al corriere per la spedizione (PARTENZE)
@@ -89,7 +87,20 @@ Attualmente la funzione di scan serve solo per le registrazioni pacco in arrivo 
 - permettere i grafici di statistica (mensili o trimestrali) sia per la totalità (come è ora) che per le sole giacenze
 - se si prevedono grafici (barre, torte, ..) indicare sempre negli elementi grafici anche i valori assoluti delle quantità riportate
 - ogni grafico deve essere anche fruibile in forma tabellare
-  
+
+#### Open Discussion
+Da verificare, esaminando anche i dati di training che fornirò, la corretta interpretazione di mittente e destinatario tramite scan dei qrcode
+
+Esempi
+
+| use case | Mittente Etichetta | Destinatario Etichetta | Mittente sul DB | Destinatario sul DB | TipoCorriere sul DB | Marketplce sul DB | Note |
+| -------- | ------------------ | ---------------------- | --------------- | ------------------- | ------------------- | ----------------- | ---- |
+| Acquisto Amazon ricevuto in tabaccheria tramite Poste | MXP <b> Strada Dogana 45 <br> Milano | Pierluigi Pierini <br> Punto poste Tabaccheria 1660 <br> Via Raffaele Battistini 123 <br> Roma | | Pierluigi Pierini | Poste | Amazon | |
+| Acquisto Amazon mandato per cortesia dell'esercente al suo indirizzo tramite Poste | MXP <b> Strada Dogana 45 <br> Milano | Pierluigi Pierini <br> Via Raffaele Battistini 123 <br> Roma | | Pierluigi Pierini | Altro | Amazon | non rientra nei servizi della ricevitoria e non viene fatturato, classificarlo come Altro |
+| Spedizione Vinted dalla ricevitoria via Poste | Pierluigi Pierini <br> Via Raffaele Battistini 123 <br> Roma | Guglielmo Marconi  <br> Punto poste Tabaccheria 2850 <br> Via Porrettana, 1320 Casalecchio (BO) | Pierluigi Pierini | Guglielmo Marconi | Poste | Vinted | pacco in partenza |
+
+- Se per la corretta identificazione delle etichette è necessario conoscere i dati della ricevitoria che usa l'App permettene la configurazione in un apposito menù di amministrazione
+
 ### Altri requisiti architetturali
 - Ogni scansione o modifica manuale tramite App va prima salvata in locale e poi sincronizzata in background con il cloud
 - Il database presente sul cloud deve essere giornalmente backuppato e archiviato con una retention configurabile (default 15 giorni)
