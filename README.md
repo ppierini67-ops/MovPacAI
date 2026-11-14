@@ -4,7 +4,7 @@ Sviluppo di una App Android per movimentazione pacchi di una ricevitoria.
 La ricevitoria offre questi servizi ai clienti in convenzione con PuntoPoste e potenzialmente con altri spedizionieri
 - ARRIVI Un cliente che deve ricevere un pacco perchè acquistato su Amazon, Vinted, Subito o su altre piattaforme può scegliere che il pacco gli venga recapitato presso il PuntoPoste. Si presenterà dall'esercente con un codice per il ritiro e lo preleverà
 - PARTENZE Un cliente che deve spedire un pacco per vendita su Vinted, Subito o altre piattaforme o per reso Amazon può portarlo presso il PuntoPoste per la spedizione opportutamente corredato di etichetta (cartacea o digitale). L'esercente provvederà alla presa in carico e successivamente alla consegna ai corrieri di spedizione.
-- un pacco che è ancora presso la ricevitoria di dice in GIACENZA, tale pacco
+- un pacco che è ancora presso la ricevitoria di dice in GIACENZA, tale pacco:
   - verrà consegnato al cliente destinatario se è un ARRIVO
   - verrà consegnato al corriere/postino se è una PARTENZA
   - in entrambi i casi fino a quando non viene consegnato ha il campo "Data Uscita" non valorizzato
@@ -24,55 +24,75 @@ Diversi gestori da gestire
 | ecc            |   |   | Possibile futuro nuovo servizio |
 | Pacco cortesia | X | X | Pacco fatto arrivare all'indirizzo dell'esercizio commerciale ma non gestito ufficialmente |
 
+## Architettura
+- L'APP è sviluppata per sistema operativo Android
+- Per maggior resilenza il database degli Arrivi e Partenza ossia l'elenco dei dati letti dalle etichette o inseriti / modificati dall'esercente deve risiedere su una piattaforma cloud
+
 ## Funzionalità APP
 ### Funzioni base operatore
-- L'APP deve leggere con la telecamera dello smartphone i barcode e i qrcode stampati sulla etichetta di arrivo o partenza e registrare i campi su un database (anche un semplice foglio CSV o excel o sheet Google)
+- Leggere con la telecamera dello smartphone i barcode e i qrcode stampati sulla etichetta di arrivo o partenza e registrare i campi su un database (anche un semplice foglio CSV o excel o sheet Google)
 - Il database contiene questi campi
 
 | Campo | Tipologia | Descrizione |
 | ----- | --------- | ----------- |
-| Tipo  | Ref       | puntamento ad altra tabella di tipi pacco: es "Poste Arrivi", "Poste Partenza". "InPost Arrivi", ... |
+| TipoCorriere | Ref       | puntamento ad altra tabella di tipi pacco: es "Poste Arrivi", "Poste Partenza". "InPost Arrivi", ... |
 | Codice | Text | stringa alfanumerica che rappresenta il codice del pacco secondo il gestore del servizio | 
+| Marketplace | Text | se rilevabile indica la piattaforma per cui si sta usando il servizio di Spedizione: Amazon, Vinted, Subito, ... |
 | Data Arrivo | Date | data in cui il pacco è entrato in ricevitoria tramite l'operazione di "scan e registrazione " |
 | Da          | Text | chi ha consegnato il pacco in ricevitoria: nome comune "postino" o "corriere" per gli ARRIVI; nome della persona che spedisce per le PARTENZE |
 | Data Arrivo | Date | data in cui il pacco esce dalla ricevitoria tramite l'operazione di "uscita" |
 | A           | Text | destinatario del pacco: nome del cliente che deve ricevere il pacco per gli ARRIVI; nome del destinatario della spedizione per le PARTENZE |
 | Note        | Text | eventuali altri note inserite dall'esercente |
 
-(è possibile che il database effettivo contenga anche una chiave primaria univoca per record nascosta alel visualizzazioni)
 
-- L'APP deve permettere un rapido accesso all'elenco dei pacchi in GIACENZA. Un pacco è in giacenza se è attualmente presso l'esercizio commerciale in quanto
+
+- Gestire l'elenco dei pacchi in GIACENZA. Un pacco è in giacenza se è attualmente presso l'esercizio commerciale in quanto
   - va consegnato al cliente destinatario (ARRIVI)
   - va consegnato al corriere per la spedizione (PARTENZE)
-- L'APP permette l'edit dei campi registrati con telecamera per integrazionio correzioni; permette altresì, previa conferma, la cancellazione di un pacco
-- L'APP permette la funzione di uscita con valorizzazione automatica di data e ora di un pacco che vuol dire consegna al cliente o al corriere
-- 
+- Gestire l'elenco completo dei pacchi gestiti, sia in giacenza che già usciti
+- Permettere l'edit dei campi registrati con telecamera per integrazioni o correzioni; permettere altresì, previa conferma, la cancellazione di un pacco
+- Permettere la funzione di uscita con valorizzazione automatica di data e ora di un pacco che vuol dire consegna al cliente o al corriere
+- Avere dashboard riepilogative connumero di pacchi gestiti e numero pacchi in giacenza per tipologia di servizio. Avere inoltre dashboard o grafici di andamento temporale sia su base mensile che trimestrale, indicare nei grafici le quantità di pacchi gestite per servizio (Poste, Inpost).
   
 ### Funzioni nuove
-Lo sviluppo dell'APP può considerare le funzionalità del prototipo fatto con AppSheet, vedi [Versione pregressa](#versione-pregressa), apportando però almeno le seguenti migliorie
+Per lo sviluppo dell'APP considerare le funzionalità del prototipo fatto con AppSheet, vedi [Versione pregressa](#versione-pregressa), apportando però almeno le seguenti migliorie
 
-Scan Ingresso/Uscite
+#### Scan Ingresso/Uscite
 Attualmente la funzione di scan serve solo per le registrazioni pacco in arrivo nella ricevitoria con identificazoine automatica del Codice letto da bar-code. Si vuole che:
 - La fotocamera possa leggere, oltre ai bar-code con il Codice, anche i QRCode, dove presenti, che riportano maggiori informazioni (es mittente, destinatario, ..). Con i dati letti si valorizzano i campi di un record che va confermato dall'operatore previa eventuale aggiunta di informazioni.
-- La fotocamera sia uscita anche per la funzione di uscita. Quindi un pacco può uscire in due modi:
-  - Si arriva al dettaglio del pacco e si usa la funzione "Uscita" che valorizza la "Data uscita" e quindi di fatto toglie il pacco dalle giacenze
-  - Si Seleziona dalla schermata principale "Uscita Pacchi", si attiva la telecamera con cui si inquadra l'etichetta, il sistema identifica il record nella base dati delle giacenze e valorizza l'uscita. Se il pacco non viene trovato un messaggio di errore segnala il fatto.
-
-Razionalizzazione
+- La fotocamera sia usata anche per la funzione di uscita. Quindi un pacco può uscire in due modi:
+  - consultando elenco si accede al dettaglio del pacco e si usa la funzione "Uscita" che valorizza la "Data uscita" e quindi di fatto toglie il pacco dalle giacenze
+  - dalla schermata principale con la funzoine "Uscita Pacchi", si attiva la telecamera con cui si inquadra l'etichetta, il sistema identifica il record nella base dati delle giacenze e valorizza l'uscita. Se il pacco non viene trovato un messaggio di errore segnala il fatto.
+- se possibile, valutandolo dal set di training e dalle prove che effettuerò, riconoscere in automatico con scan dell'etichetta
+  - se si tratta di ARRIVO o PARTENZA
+  - Marketplace
+- Lo scan per ingresso o uscita valorizza i campi del database a secondo di quanto ha letto (codice e dati anagrafici per ingressi, data per le uscite) e i campi così modificati vengono mostrati all'operatore in una "schermata di modifica" per una conferma (tasto OK o Salva); tuttavia dalla "schermata di modifica" deve essere possibile rieseguire lo scan con nuova valorizzazione dei campi. Questa funzione è necessaria e importante perchè le etichette riportano più codici a barre e più qrcode quindi può capitare di aver inquadrato quello errato o quello incompleto che riporta meno dati
+ 
+#### Razionalizzazione
 - Razionalizzare i menù: le funzioni Giacenze e Archivio sostanzialmente accedono alla stessa base dati mostrando uno i pacchi ancora in giacenza per cui non è stata fatta la chiusura ed uno la totalità dei pacchi. Valutare l'unificazione dei due menù con
   - possibilità di filtro veloce per passare da Giacenze (record con data_chiusura null) a Archivio (tutti)
   - default di visualizzazione impostato su Giacenze dato che sono i pacchi che l'esercente deve ancora lavorare
 - Diminuire il più possibile numero di click che l'operatore deve eseguire. Esempio ora per dichiarare l'uscita di un pacco bisogna arrivare all'elenco, selezionare un pacco e poi cliccare sull'icona di uscita
-- Attualmente la funzione di scan (solo per le "Entrate Pacchi") è fruibile dal menù Giacenze. Potrebbe essere portata in primo piano sulla schermata di default dell'App con pulsanti chiari, grandi e accessibili e affiancata dalla funzione di "Uscita Pacchi" tramite scan.
+- Posizionare in primo piano nella schermata home le funzioni più utilizzate come "scan per Entrate Pacchi") e "scan per "Uscita Pacchi". Usare pulsanti chiari, grandi e accessibili.
 
-### Altro
+#### Elenchi
+- Permettere la selezione multipla di più pacchi su cui applicare la funzione di Uscita (cliente prende tre pacchi di propria proprietà e non ho usato la funzione di uscita tramite scan del  code; allora vado in elenco, selezono tutti e tre i pacchi e con un asola operazoine faccio l'uscita)
+- Permettere dall'elenco la cancellazione di un record (un pacco) senza dover accedere al dettaglio di quel pacco
+- Permettere filtri tramite casella di ricerca globale, se possibile integrato con riconoscitore vocale di Google
+- Permettere l'edit anche del campo codice (non previsto su versione attuale perchè usato come chiave primaria)
+- Permettere ordinamento almeno per alfabetico ordini e cronologico
+- Nelle date mostrare sia giorno che ora
+- In cima a tutti gli elenchi indicare sempre il numero di record totali della vista con gli attuali filtri
+- Evidenziare con colori o icone diverse i pacchi in base al Marketplace
+  
+#### Statistiche
+- permettere i grafici di statistica (mensili o trimestrali) sia per la totalità (come è ora) che per le sole giacenze
+- se si prevedono grafici (barre, torte, ..) indicare sempre negli elementi grafici anche i valori assoluti delle quantità riportate
+- ogni grafico deve essere anche fruibile in forma tabellare
+  
+### Altri requisiti architetturali
 - Ogni scansione o modifica manuale tramite App va prima salvata in locale e poi sincronizzata in background con il cloud
-- Il database presente sul cloud deve essere giornalmente backuppato e archiviato con una retention configurabile ma indicativamente di 15 giorni
-
-## Architettura
-- L'APP è sviluppata per sistema operativo Android
-- Per maggior resilenza il database degli Arrivi e Partenza ossia l'elenco dei dati letti dalle etichette o inseriti / modificati dall'esercente deve risiedere su una piattaforma cloud
-
+- Il database presente sul cloud deve essere giornalmente backuppato e archiviato con una retention configurabile (default 15 giorni)
 
 ## Suggerimenti
 Quelli che seguono sono suggerimenti per quanto è stato fatto e ricercato fino ad ora ma non sono assolutamente vincolanti. Scegli la soluzione più idonea, che sia semplice ma dia un risultato buono in stabilità e aspetto grafico.
