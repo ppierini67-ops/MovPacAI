@@ -146,6 +146,7 @@ alcune funzioni fruibili tramite "pulsanti azione"
 | "+" = aggiungi pacco | FAREEEEEEEEEEEEEEEEEE |
 icona del camion = uscita pacco | FAREEEEEEEEEEEEEEEEEE |
 
+Si allega descrizione PDF dell'App da documentazione di AppSheet FAREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
   
 ## Alternative Commerciali
 Valuta queste alternative di APP per prendere idee
