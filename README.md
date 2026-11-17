@@ -4,10 +4,12 @@ Sviluppo di una App Android per movimentazione pacchi di una ricevitoria.
 La ricevitoria offre questi servizi ai clienti in convenzione con PuntoPoste e potenzialmente con altri spedizionieri
 - ARRIVI Un cliente che deve ricevere un pacco perchè acquistato su Amazon, Vinted, Subito o su altre piattaforme può scegliere che il pacco gli venga recapitato presso il PuntoPoste. Si presenterà dall'esercente con un codice per il ritiro e lo preleverà
 - PARTENZE Un cliente che deve spedire un pacco per vendita su Vinted, Subito o altre piattaforme o per reso Amazon può portarlo presso il PuntoPoste per la spedizione opportutamente corredato di etichetta (cartacea o digitale). L'esercente provvederà alla presa in carico e successivamente alla consegna ai corrieri di spedizione.
+
 - un pacco che è ancora presso la ricevitoria di dice in GIACENZA, tale pacco:
   - verrà consegnato al cliente destinatario se è un ARRIVO
   - verrà consegnato al corriere/postino se è una PARTENZA
   - in entrambi i casi fino a quando non viene consegnato ha il campo "Data Uscita" non valorizzato
+- la registrazione ufficiale della consegna di un pacco (ARRIVI) o di una presa in carico per la spedizione (PARTENZE) avviene sui sistemi proprietari dei vari servi di di spedizione. Questa app deve servire solo come database interno dell'esercente e è separata dagli altri sistemi di gestione dei pacchi.
 
 | | | | GIACENZA | | |  | 
 | -- | -- | -- | -- | -- | -- | -- |
@@ -22,35 +24,40 @@ Diversi gestori da gestire
 | Inpost         |   |   | Dismesso        |
 | Bartolini      |   |   | Possibile futuro nuovo servizio |
 | ecc            |   |   | Possibile futuro nuovo servizio |
-| Pacco cortesia | X | X | Pacco fatto arrivare all'indirizzo dell'esercizio commerciale ma non gestito ufficialmente |
+| Pacco cortesia | X | X | Pacco di tipo ARRIVI fatto arrivare all'indirizzo dell'esercizio commerciale ma non gestito ufficialmente. Questo si verifica se nell'etichetta non compare esplicitamente il punto di ritiro dell'esercente (esempio "PuntoPoste Tabaccheria N. 1660 ....") |
 
 ## Architettura
 - L'APP è sviluppata per sistema operativo Android
-- Per maggior resilenza il database degli Arrivi e Partenza ossia l'elenco dei dati letti dalle etichette o inseriti / modificati dall'esercente deve risiedere su una piattaforma cloud
+- Per maggior resilenza il database degli Arrivi e Partenze ossia l'elenco dei dati letti dalle etichette o inseriti / modificati dall'esercente deve risiedere su una piattaforma cloud
 
 ## Funzionalità APP
+### Login
+- L'app sarà usata da una sola persona proprietario di una sola ricevitoria
+- Non ci deve essere login sull'app
+
 ### Funzioni base operatore
 - Leggere con la telecamera dello smartphone i barcode e i qrcode stampati sulla etichetta di arrivo o partenza e registrare i campi su un database (anche un semplice foglio CSV o excel o sheet Google)
 - Il database contiene questi campi
 
 | Campo | Tipologia | Descrizione |
 | ----- | --------- | ----------- |
-| TipoSpedizione | Ref | puntamento ad altra tabella di tipi spedizione: es "Poste Arrivi", "Poste Partenza". "InPost Arrivi", ... |
+| TipoSpedizione | Ref | puntamento ad altra tabella di tipi spedizione: es "Poste Arrivi", "Poste Partenze". "InPost Arrivi", ... |
 | Codice | Text | stringa alfanumerica che rappresenta il codice del pacco secondo il gestore del servizio | 
 | Marketplace | Text | se rilevabile indica la piattaforma per cui si sta usando il servizio di Spedizione: Amazon, Vinted, Subito, ... |
 | Data Arrivo | Date | data in cui il pacco è entrato in ricevitoria tramite l'operazione di "scan e registrazione " |
-| Da          | Text | chi ha consegnato il pacco in ricevitoria: nome comune "postino" o "corriere" per gli ARRIVI; nome della persona che spedisce per le PARTENZE |
-| Data Arrivo | Date | data in cui il pacco esce dalla ricevitoria tramite l'operazione di "uscita" |
+| Da          | Text | chi ha consegnato il pacco in ricevitoria: vuoto per gli ARRIVI; nome della persona che spedisce per le PARTENZE |
+| Data Uscita | Date | data in cui il pacco esce dalla ricevitoria tramite l'operazione di "uscita" |
 | A           | Text | destinatario del pacco: nome del cliente che deve ricevere il pacco per gli ARRIVI; nome del destinatario della spedizione per le PARTENZE |
 | Note        | Text | eventuali altri note inserite dall'esercente |
 
+- Non ci sono altri dati da registrare: no documento, no firma cliente, ...
 - Gestire l'elenco dei pacchi in GIACENZA. Un pacco è in giacenza se è attualmente presso l'esercizio commerciale in quanto
   - va consegnato al cliente destinatario (ARRIVI)
   - va consegnato al corriere per la spedizione (PARTENZE)
 - Gestire l'elenco completo dei pacchi gestiti, sia in giacenza che già usciti
-- Permettere l'edit dei campi registrati con telecamera per integrazioni o correzioni; permettere altresì, previa conferma, la cancellazione di un pacco
-- Permettere la funzione di uscita con valorizzazione automatica di data e ora di un pacco che vuol dire consegna al cliente o al corriere
-- Avere dashboard riepilogative connumero di pacchi gestiti e numero pacchi in giacenza per tipologia di servizio. Avere inoltre dashboard o grafici di andamento temporale sia su base mensile che trimestrale, indicare nei grafici le quantità di pacchi gestite per servizio (Poste, Inpost).
+- Permettere la modifica dei campi (sia registrati con telecamera che inseriti manualmente) per integrazioni o correzioni; permettere altresì, previa conferma, la cancellazione di un pacco
+- Permettere la funzione di uscita con valorizzazione automatica di data e ora di un pacco che vuol dire consegna al cliente o al corriere. Anche il pacco registrato come "uscito" deve essere modificabile annullando, se occorre, la data di uscita
+- Avere dashboard riepilogative con numero di pacchi gestiti e numero pacchi in giacenza per tipologia di servizio. Avere inoltre dashboard o grafici di andamento temporale sia su base mensile che trimestrale, indicare nei grafici le quantità di pacchi gestite per servizio (Poste, Inpost).
   
 ### Funzioni nuove
 Per lo sviluppo dell'APP considerare le funzionalità del prototipo fatto con AppSheet, vedi [Versione pregressa](#versione-pregressa), apportando però almeno le seguenti migliorie
@@ -65,6 +72,7 @@ Attualmente la funzione di scan serve solo per le registrazioni pacco in arrivo 
   - se si tratta di ARRIVO o PARTENZA
   - Marketplace
 - Lo scan per ingresso o uscita valorizza i campi del database a secondo di quanto ha letto (codice e dati anagrafici per ingressi, data per le uscite) e i campi così modificati vengono mostrati all'operatore in una "schermata di modifica" per una conferma (tasto OK o Salva); tuttavia dalla "schermata di modifica" deve essere possibile rieseguire lo scan con nuova valorizzazione dei campi. Questa funzione è necessaria e importante perchè le etichette riportano più codici a barre e più qrcode quindi può capitare di aver inquadrato quello errato o quello incompleto che riporta meno dati
+- - Un pacco registrato come già entrato (scan o inserimento manuale + conferma esplicita operatore) non può essere di nuovo scansinato per l'ingresso; se ciò avviene il sistema avvisa dell'errore e del duplicato; stessa cosa per l'operazione di uscita che può essere fatta solo una volta a meno di modifiche del record che cancellino "data uscita"
  
 #### Razionalizzazione
 - Razionalizzare i menù: le funzioni Giacenze e Archivio sostanzialmente accedono alla stessa base dati mostrando uno i pacchi ancora in giacenza per cui non è stata fatta la chiusura ed uno la totalità dei pacchi. Valutare l'unificazione dei due menù con
@@ -95,15 +103,15 @@ Esempi
 
 | use case | Mittente Etichetta | Destinatario Etichetta | Mittente sul DB | Destinatario sul DB | TipoSpedizione sul DB | Marketplace sul DB | Note |
 | -------- | ------------------ | ---------------------- | --------------- | ------------------- | ------------------- | ----------------- | ---- |
-| Acquisto Amazon ricevuto in tabaccheria tramite Poste | MXP <b> Strada Dogana 45 <br> Milano | Pierluigi Pierini <br> Punto poste Tabaccheria 1660 <br> Via Raffaele Battistini 123 <br> Roma | | Pierluigi Pierini | Poste | Amazon | |
+| Acquisto Amazon ricevuto in tabaccheria tramite Poste | MXP <b> Strada Dogana 45 <br> Milano | Pierluigi Pierini <br> Punto poste Tabaccheria 1660 <br> Via Raffaele Battistini 123 <br> Roma | | Pierluigi Pierini | PosteArrivi | Amazon | |
 | Acquisto Amazon mandato per cortesia dell'esercente al suo indirizzo tramite Poste | MXP <b> Strada Dogana 45 <br> Milano | Pierluigi Pierini <br> Via Raffaele Battistini 123 <br> Roma | | Pierluigi Pierini | Altro | Amazon | non rientra nei servizi della ricevitoria e non viene fatturato, classificarlo come Altro |
-| Spedizione Vinted dalla ricevitoria via Poste | Pierluigi Pierini <br> Via Raffaele Battistini 123 <br> Roma | Guglielmo Marconi  <br> Punto poste Tabaccheria 2850 <br> Via Porrettana, 1320 Casalecchio (BO) | Pierluigi Pierini | Guglielmo Marconi | Poste | Vinted | pacco in partenza |
+| Spedizione Vinted dalla ricevitoria via Poste | Pierluigi Pierini <br> Via Raffaele Battistini 123 <br> Roma | Guglielmo Marconi  <br> Punto poste Tabaccheria 2850 <br> Via Porrettana, 1320 Casalecchio (BO) | Pierluigi Pierini | Guglielmo Marconi | PostePartenze | Vinted | pacco in partenza |
 
 - Se per la corretta identificazione delle etichette è necessario conoscere i dati della ricevitoria che usa l'App permettene la configurazione in un apposito menù di amministrazione
 
 ### Altri requisiti architetturali
 - Ogni scansione o modifica manuale tramite App va prima salvata in locale e poi sincronizzata in background con il cloud
-- Il database presente sul cloud deve essere giornalmente backuppato e archiviato con una retention configurabile (default 15 giorni)
+- Il database presente sul cloud deve essere giornalmente backuppato e archiviato con una retention configurabile (default 15 giorni). Non voglio piani a pagamento per cui se il piano free non offre backup trova altre soluzioni come la lettura, conversione in CSV e archiviazione su 
 
 ## Suggerimenti
 Quelli che seguono sono suggerimenti per quanto è stato fatto e ricercato fino ad ora ma non sono assolutamente vincolanti. Scegli la soluzione più idonea, che sia semplice ma dia un risultato buono in stabilità e aspetto grafico.
@@ -137,7 +145,7 @@ alcune funzioni fruibili tramite "pulsanti azione"
 | Giacenza  | Visualizza un grafico a barre indicante le quantità di pacchi in magazzino ossia presenti presso l'esercizio commerciale; il grafico è raggruppato per servizio (all'epoca PuntoPoste e Inpost e per tipologia di pacco: Arrivo (da dare al cliente), Partenza (da dare al corriere) | [Giacenze1.jpg](AppSheet/Giacenze1.jpg) |
 | ^         | Cliccando su una barra si accede all'elenco dei pacchi in giacenza per quel servizio e tipo | [Giacenze2.jpg](AppSheet/Giacenze2.jpg) |
 | ^         | Selezionando un pacco si può procedere con EDIT dei campi, con CANCELLAZIONE o con la funzoine veloce USCITA | [Giacenze3.jpg](AppSheet/Giacenze3.jpg) | 
-| Riepilogo | Mostra per ciascun TipoSpedizione (es "Poste Arrivi", "Poste PArtenze", "Inpost Arrivi", ..) il totale dei pacchi registrati tramite l'app e il totale dei pacchi in giacenza | [Riepilogo1.jpg](AppSheet/Riepilogo1.jpg) | 
+| Riepilogo | Mostra per ciascun TipoSpedizione (es "Poste Arrivi", "Poste Partenze", "Inpost Arrivi", ..) il totale dei pacchi registrati tramite l'app e il totale dei pacchi in giacenza | [Riepilogo1.jpg](AppSheet/Riepilogo1.jpg) | 
 | Archivio  | Funzione simile a Giacenze ma mostra tutti i pacchi piuttosto che solo le Giacenze. Parte da un menù riepilogativo e poi permette l'accesso alla lista dei pacchi e al dettaglio | [Archivio1.jpg](AppSheet/Archivio1.jpg) [Archivio2.jpg](AppSheet/Archivio2.jpg)  |
 | ^         | Dal dettaglio di un pacco è possibile Modifica, Cancellazione del record o operazione di Uscita se il pacco è tra quelli ancora in giacenza | [Archivio3.jpg](AppSheet/Archivio3.jpg)  |
 | Statistiche | Rappresenta su grafico i totali pacchi raggruppati per mese; con click si accede al dettaglio del mese con grafico a barre diviso per TipoSpedizione; ancora click e si accede all'elenco dei pacchi per il mese e il TipoSpedizione selezionati  | [Statistiche1.jpg](AppSheet/Statistiche1.jpg) [Statistiche2.jpg](AppSheet/Statistiche2.jpg) [Statistiche3.jpg](AppSheet/Statistiche3.jpg) |
