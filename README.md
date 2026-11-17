@@ -35,7 +35,7 @@ Diversi gestori da gestire
 
 | Campo | Tipologia | Descrizione |
 | ----- | --------- | ----------- |
-| TipoCorriere | Ref       | puntamento ad altra tabella di tipi pacco: es "Poste Arrivi", "Poste Partenza". "InPost Arrivi", ... |
+| TipoSpedizione | Ref | puntamento ad altra tabella di tipi spedizione: es "Poste Arrivi", "Poste Partenza". "InPost Arrivi", ... |
 | Codice | Text | stringa alfanumerica che rappresenta il codice del pacco secondo il gestore del servizio | 
 | Marketplace | Text | se rilevabile indica la piattaforma per cui si sta usando il servizio di Spedizione: Amazon, Vinted, Subito, ... |
 | Data Arrivo | Date | data in cui il pacco è entrato in ricevitoria tramite l'operazione di "scan e registrazione " |
@@ -93,7 +93,7 @@ Da verificare, esaminando anche i dati di training che fornirò, la corretta int
 
 Esempi
 
-| use case | Mittente Etichetta | Destinatario Etichetta | Mittente sul DB | Destinatario sul DB | TipoCorriere sul DB | Marketplce sul DB | Note |
+| use case | Mittente Etichetta | Destinatario Etichetta | Mittente sul DB | Destinatario sul DB | TipoSpedizione sul DB | Marketplace sul DB | Note |
 | -------- | ------------------ | ---------------------- | --------------- | ------------------- | ------------------- | ----------------- | ---- |
 | Acquisto Amazon ricevuto in tabaccheria tramite Poste | MXP <b> Strada Dogana 45 <br> Milano | Pierluigi Pierini <br> Punto poste Tabaccheria 1660 <br> Via Raffaele Battistini 123 <br> Roma | | Pierluigi Pierini | Poste | Amazon | |
 | Acquisto Amazon mandato per cortesia dell'esercente al suo indirizzo tramite Poste | MXP <b> Strada Dogana 45 <br> Milano | Pierluigi Pierini <br> Via Raffaele Battistini 123 <br> Roma | | Pierluigi Pierini | Altro | Amazon | non rientra nei servizi della ricevitoria e non viene fatturato, classificarlo come Altro |
@@ -137,14 +137,16 @@ alcune funzioni fruibili tramite "pulsanti azione"
 | Giacenza  | Visualizza un grafico a barre indicante le quantità di pacchi in magazzino ossia presenti presso l'esercizio commerciale; il grafico è raggruppato per servizio (all'epoca PuntoPoste e Inpost e per tipologia di pacco: Arrivo (da dare al cliente), Partenza (da dare al corriere) | [Giacenze1.jpg](AppSheet/Giacenze1.jpg) |
 | ^         | Cliccando su una barra si accede all'elenco dei pacchi in giacenza per quel servizio e tipo | [Giacenze2.jpg](AppSheet/Giacenze2.jpg) |
 | ^         | Selezionando un pacco si può procedere con EDIT dei campi, con CANCELLAZIONE o con la funzoine veloce USCITA | [Giacenze3.jpg](AppSheet/Giacenze3.jpg) | 
-| Riepilogo | Mostra per ciascun tipologia (es "Poste Arrivi", "Poste PArtenze", "Inpost Arrivi", ..) il totale dei pacchi registrati tramite l'app e il totale dei pacchi in giacenza | [Riepilogo1.jpg](AppSheet/Riepilogo1.jpg) | 
+| Riepilogo | Mostra per ciascun TipoSpedizione (es "Poste Arrivi", "Poste PArtenze", "Inpost Arrivi", ..) il totale dei pacchi registrati tramite l'app e il totale dei pacchi in giacenza | [Riepilogo1.jpg](AppSheet/Riepilogo1.jpg) | 
 | Archivio  | Funzione simile a Giacenze ma mostra tutti i pacchi piuttosto che solo le Giacenze. Parte da un menù riepilogativo e poi permette l'accesso alla lista dei pacchi e al dettaglio | [Archivio1.jpg](AppSheet/Archivio1.jpg) [Archivio2.jpg](AppSheet/Archivio2.jpg)  |
 | ^         | Dal dettaglio di un pacco è possibile Modifica, Cancellazione del record o operazione di Uscita se il pacco è tra quelli ancora in giacenza | [Archivio3.jpg](AppSheet/Archivio3.jpg)  |
-| Statistiche | FAREEEEEEEEEEEEEEEEEE |
-| Statistiche trimestrali | FAREEEEEEEEEEEEEEEEEE |
+| Statistiche | Rappresenta su grafico i totali pacchi raggruppati per mese; con click si accede al dettaglio del mese con grafico a barre diviso per TipoSpedizione; ancora click e si accede all'elenco dei pacchi per il mese e il TipoSpedizione selezionati  | [Statistiche1.jpg](AppSheet/Statistiche1.jpg) [Statistiche2.jpg](AppSheet/Statistiche2.jpg) [Statistiche3.jpg](AppSheet/Statistiche3.jpg) |
+| Uscite trimestrali | Come Statistiche ma con raggruppamento del primo grafico per trimestri dell'anno piuttosto che per mesi | [UsciteTrim11.jpg](AppSheet/UsciteTrim1.jpg) [UsciteTrim12.jpg](AppSheet/UsciteTrim2.jpg) |
 | About | Informazioni sull'app | FAREEEEEEEEEEEEEEEEEE |
 | "+" = aggiungi pacco | FAREEEEEEEEEEEEEEEEEE |
 icona del camion = uscita pacco | FAREEEEEEEEEEEEEEEEEE |
+
+NOTA: Per i raggruppamenti per data fa fede la "Data uscita" del pacco
 
 Si allega descrizione PDF dell'App da documentazione di AppSheet FAREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
   
