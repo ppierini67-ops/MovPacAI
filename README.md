@@ -151,9 +151,9 @@ alcune funzioni fruibili tramite "pulsanti azione"
 | ^         | Dal dettaglio di un pacco è possibile Modifica, Cancellazione del record o operazione di Uscita se il pacco è tra quelli ancora in giacenza | [Archivio3.jpg](AppSheet/Archivio3.jpg)  |
 | Statistiche | Rappresenta su grafico i totali pacchi raggruppati per mese; con click si accede al dettaglio del mese con grafico a barre diviso per TipoSpedizione; ancora click e si accede all'elenco dei pacchi per il mese e il TipoSpedizione selezionati  | [Statistiche1.jpg](AppSheet/Statistiche1.jpg) [Statistiche2.jpg](AppSheet/Statistiche2.jpg) [Statistiche3.jpg](AppSheet/Statistiche3.jpg) |
 | Uscite trimestrali | Come Statistiche ma con raggruppamento del primo grafico per trimestri dell'anno piuttosto che per mesi | [UsciteTrim11.jpg](AppSheet/UsciteTrim1.jpg) [UsciteTrim12.jpg](AppSheet/UsciteTrim2.jpg) |
-| About | Informazioni sull'app | FAREEEEEEEEEEEEEEEEEE |
-| "+" = aggiungi pacco | FAREEEEEEEEEEEEEEEEEE |
-icona del camion = uscita pacco | FAREEEEEEEEEEEEEEEEEE |
+| About | Informazioni sull'app |  [About1.jpg](AppSheet/About1.jpg)  About2.jpg](AppSheet/About2.jpg) |
+| "+" = aggiungi pacco | L'icona "+" apre la schermata di inserimento e modifica di un record, premendo l'icona "qrcode" il valore di Codice viene letto dallo scan | [Aggiungi1.jpg](AppSheet/Aggiungi1.jpg) [Aggiungi2.jpg](AppSheet/Aggiungi2.jpg)  |
+icona del camion = uscita pacco | Una volta selezionato il record con l'icona "camion" si fa l'uscita del pacco | [Uscita1.jpg](AppSheet/Uscita1.jpg) [Uscita2.jpg](AppSheet/Uscita2.jpg) |
 
 NOTA: Per i raggruppamenti per data fa fede la "Data uscita" del pacco
 
