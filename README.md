@@ -37,6 +37,7 @@ Diversi gestori da gestire
 
 ### Funzioni base operatore
 - Leggere con la telecamera dello smartphone i Barcode e i DataMatrix stampati sulla etichetta di arrivo o partenza e registrare i campi su un database (anche un semplice foglio CSV o excel o sheet Google)
+- Se necessario integrare la lettura dei codici con OCS su etichetta
 - Il database contiene questi campi
 
 | Campo | Tipologia | Descrizione |
@@ -49,6 +50,8 @@ Diversi gestori da gestire
 | Data Uscita | Date | data in cui il pacco esce dalla ricevitoria tramite l'operazione di "uscita" |
 | A           | Text | destinatario del pacco: nome del cliente che deve ricevere il pacco per gli ARRIVI; nome del destinatario della spedizione per le PARTENZE |
 | Note        | Text | eventuali altri note inserite dall'esercente |
+
+Nota importante su Codice: le etichette contengono tanti codici ricavabili da BarCode e DataMatrix, uno solo di questo è il principale da archiviare sul database e utilizzare successivamente per le uscite. Normalmente è quello ricavabile dal DataMartrix più grande (altri DataMatrix più piccoli ravvicinati rappresentano altri codici) o dal BarCode più grande. Per addestrare l'algoritmo in TrainingSet si riportano esempi di etichette con relativo "Codice principale".
 
 - Non ci sono altri dati da registrare: no documento, no firma cliente, ...
 - Gestire l'elenco dei pacchi in GIACENZA. Un pacco è in giacenza se è attualmente presso l'esercizio commerciale in quanto
