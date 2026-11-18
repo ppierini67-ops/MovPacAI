@@ -36,7 +36,7 @@ Diversi gestori da gestire
 - Non ci deve essere login sull'app
 
 ### Funzioni base operatore
-- Leggere con la telecamera dello smartphone i barcode e i qrcode stampati sulla etichetta di arrivo o partenza e registrare i campi su un database (anche un semplice foglio CSV o excel o sheet Google)
+- Leggere con la telecamera dello smartphone i Barcode e i DataMatrix stampati sulla etichetta di arrivo o partenza e registrare i campi su un database (anche un semplice foglio CSV o excel o sheet Google)
 - Il database contiene questi campi
 
 | Campo | Tipologia | Descrizione |
@@ -64,14 +64,14 @@ Per lo sviluppo dell'APP considerare le funzionalità del prototipo fatto con Ap
 
 #### Scan Ingresso/Uscite
 Attualmente la funzione di scan serve solo per le registrazioni pacco in arrivo nella ricevitoria con identificazoine automatica del Codice letto da bar-code. Si vuole che:
-- La fotocamera possa leggere, oltre ai bar-code con il Codice, anche i QRCode, dove presenti, che riportano maggiori informazioni (es mittente, destinatario, ..). Con i dati letti si valorizzano i campi di un record che va confermato dall'operatore previa eventuale aggiunta di informazioni.
+- La fotocamera possa leggere, oltre ai bar-code con il Codice, anche i DataMatrix, dove presenti, che riportano maggiori informazioni (es mittente, destinatario, ..). Con i dati letti si valorizzano i campi di un record che va confermato dall'operatore previa eventuale aggiunta di informazioni.
 - La fotocamera sia usata anche per la funzione di uscita. Quindi un pacco può uscire in due modi:
   - consultando elenco si accede al dettaglio del pacco e si usa la funzione "Uscita" che valorizza la "Data uscita" e quindi di fatto toglie il pacco dalle giacenze
   - dalla schermata principale con la funzoine "Uscita Pacchi", si attiva la telecamera con cui si inquadra l'etichetta, il sistema identifica il record nella base dati delle giacenze e valorizza l'uscita. Se il pacco non viene trovato un messaggio di errore segnala il fatto.
 - se possibile, valutandolo dal set di training e dalle prove che effettuerò, riconoscere in automatico con scan dell'etichetta
   - se si tratta di ARRIVO o PARTENZA
   - Marketplace
-- Lo scan per ingresso o uscita valorizza i campi del database a secondo di quanto ha letto (codice e dati anagrafici per ingressi, data per le uscite) e i campi così modificati vengono mostrati all'operatore in una "schermata di modifica" per una conferma (tasto OK o Salva); tuttavia dalla "schermata di modifica" deve essere possibile rieseguire lo scan con nuova valorizzazione dei campi. Questa funzione è necessaria e importante perchè le etichette riportano più codici a barre e più qrcode quindi può capitare di aver inquadrato quello errato o quello incompleto che riporta meno dati
+- Lo scan per ingresso o uscita valorizza i campi del database a secondo di quanto ha letto (codice e dati anagrafici per ingressi, data per le uscite) e i campi così modificati vengono mostrati all'operatore in una "schermata di modifica" per una conferma (tasto OK o Salva); tuttavia dalla "schermata di modifica" deve essere possibile rieseguire lo scan con nuova valorizzazione dei campi. Questa funzione è necessaria e importante perchè le etichette riportano più BarCode e più DataMatrix quindi può capitare di aver inquadrato quello errato o quello incompleto che riporta meno dati
 - Un pacco registrato come già entrato (scan o inserimento manuale + conferma esplicita operatore) non può essere di nuovo scansionato per l'ingresso; se ciò avviene il sistema avvisa dell'errore e del duplicato; stessa cosa per l'operazione di uscita che può essere fatta solo una volta a meno di modifiche del record che cancellino "data uscita"
  
 #### Razionalizzazione
@@ -97,7 +97,7 @@ Attualmente la funzione di scan serve solo per le registrazioni pacco in arrivo 
 - ogni grafico deve essere anche fruibile in forma tabellare
 
 #### Open Discussion
-Da verificare, esaminando anche i dati di training che fornirò, la corretta interpretazione di mittente e destinatario tramite scan dei qrcode
+Da verificare, esaminando anche i dati di training che fornirò, la corretta interpretazione di mittente e destinatario tramite scan dei DataMatrix
 
 Esempi
 
@@ -152,7 +152,7 @@ alcune funzioni fruibili tramite "pulsanti azione"
 | Statistiche | Rappresenta su grafico i totali pacchi raggruppati per mese; con click si accede al dettaglio del mese con grafico a barre diviso per TipoSpedizione; ancora click e si accede all'elenco dei pacchi per il mese e il TipoSpedizione selezionati  | [Statistiche1.jpg](AppSheet/Statistiche1.jpg) [Statistiche2.jpg](AppSheet/Statistiche2.jpg) [Statistiche3.jpg](AppSheet/Statistiche3.jpg) |
 | Uscite trimestrali | Come Statistiche ma con raggruppamento del primo grafico per trimestri dell'anno piuttosto che per mesi | [UsciteTrim11.jpg](AppSheet/UsciteTrim1.jpg) [UsciteTrim12.jpg](AppSheet/UsciteTrim2.jpg) |
 | About | Informazioni sull'app |  [About1.jpg](AppSheet/About1.jpg)  About2.jpg](AppSheet/About2.jpg) |
-| "+" = aggiungi pacco | L'icona "+" apre la schermata di inserimento e modifica di un record, premendo l'icona "qrcode" il valore di Codice viene letto dallo scan | [Aggiungi1.jpg](AppSheet/Aggiungi1.jpg) [Aggiungi2.jpg](AppSheet/Aggiungi2.jpg)  |
+| "+" = aggiungi pacco | L'icona "+" apre la schermata di inserimento e modifica di un record, premendo l'icona "scan qrcode" il valore di Codice viene letto dallo scan | [Aggiungi1.jpg](AppSheet/Aggiungi1.jpg) [Aggiungi2.jpg](AppSheet/Aggiungi2.jpg)  |
 icona del camion = uscita pacco | Una volta selezionato il record con l'icona "camion" si fa l'uscita del pacco | [Uscita1.jpg](AppSheet/Uscita1.jpg) [Uscita2.jpg](AppSheet/Uscita2.jpg) |
 
 NOTA: Per i raggruppamenti per data fa fede la "Data uscita" del pacco
