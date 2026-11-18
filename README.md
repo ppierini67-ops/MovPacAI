@@ -72,7 +72,7 @@ Attualmente la funzione di scan serve solo per le registrazioni pacco in arrivo 
   - se si tratta di ARRIVO o PARTENZA
   - Marketplace
 - Lo scan per ingresso o uscita valorizza i campi del database a secondo di quanto ha letto (codice e dati anagrafici per ingressi, data per le uscite) e i campi così modificati vengono mostrati all'operatore in una "schermata di modifica" per una conferma (tasto OK o Salva); tuttavia dalla "schermata di modifica" deve essere possibile rieseguire lo scan con nuova valorizzazione dei campi. Questa funzione è necessaria e importante perchè le etichette riportano più codici a barre e più qrcode quindi può capitare di aver inquadrato quello errato o quello incompleto che riporta meno dati
-- - Un pacco registrato come già entrato (scan o inserimento manuale + conferma esplicita operatore) non può essere di nuovo scansinato per l'ingresso; se ciò avviene il sistema avvisa dell'errore e del duplicato; stessa cosa per l'operazione di uscita che può essere fatta solo una volta a meno di modifiche del record che cancellino "data uscita"
+- Un pacco registrato come già entrato (scan o inserimento manuale + conferma esplicita operatore) non può essere di nuovo scansionato per l'ingresso; se ciò avviene il sistema avvisa dell'errore e del duplicato; stessa cosa per l'operazione di uscita che può essere fatta solo una volta a meno di modifiche del record che cancellino "data uscita"
  
 #### Razionalizzazione
 - Razionalizzare i menù: le funzioni Giacenze e Archivio sostanzialmente accedono alla stessa base dati mostrando uno i pacchi ancora in giacenza per cui non è stata fatta la chiusura ed uno la totalità dei pacchi. Valutare l'unificazione dei due menù con
@@ -111,7 +111,8 @@ Esempi
 
 ### Altri requisiti architetturali
 - Ogni scansione o modifica manuale tramite App va prima salvata in locale e poi sincronizzata in background con il cloud
-- Il database presente sul cloud deve essere giornalmente backuppato e archiviato con una retention configurabile (default 15 giorni). Non voglio piani a pagamento per cui se il piano free non offre backup trova altre soluzioni come la lettura, conversione in CSV e archiviazione su 
+- Inserisci funzione di export record filtrati in CSV
+- Il database presente sul cloud deve essere giornalmente backuppato e archiviato con una retention configurabile (default 15 giorni). Non voglio piani a pagamento per cui se il piano free non offre backup trova altre soluzioni come la lettura, conversione in CSV e archiviazione su drive.
 
 ## Suggerimenti
 Quelli che seguono sono suggerimenti per quanto è stato fatto e ricercato fino ad ora ma non sono assolutamente vincolanti. Scegli la soluzione più idonea, che sia semplice ma dia un risultato buono in stabilità e aspetto grafico.
@@ -156,7 +157,9 @@ icona del camion = uscita pacco | FAREEEEEEEEEEEEEEEEEE |
 
 NOTA: Per i raggruppamenti per data fa fede la "Data uscita" del pacco
 
-Si allega descrizione PDF dell'App da documentazione di AppSheet FAREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+## Attivazione e distribuzione app
+- L'App può essere distribuita tramite APK da installare senza Play Store
+- In una seconda fare faremo la migrazione dei dati di Google Sheet su nuovo database Firebase
   
 ## Alternative Commerciali
 Valuta queste alternative di APP per prendere idee
