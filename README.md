@@ -11,6 +11,7 @@ La ricevitoria offre questi servizi ai clienti in convenzione con PuntoPoste e p
   - in entrambi i casi fino a quando non viene consegnato ha il campo "Data Uscita" non valorizzato
 - la registrazione ufficiale della consegna di un pacco (ARRIVI) o di una presa in carico per la spedizione (PARTENZE) avviene sui sistemi proprietari dei vari servi di di spedizione. Questa app deve servire solo come database interno dell'esercente e è separata dagli altri sistemi di gestione dei pacchi.
 
+
 | | | | GIACENZA | | |  | 
 | -- | -- | -- | -- | -- | -- | -- |
 | Il cliente porta un pacco da spedire | >> | Registrazione <br> Presa in carico | PARTENZE | Registrazione <br> Uscita | >> | Consegna al corriere |
