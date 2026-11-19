@@ -107,8 +107,8 @@ Esempi
 
 | use case | Mittente Etichetta | Destinatario Etichetta | Mittente sul DB | Destinatario sul DB | TipoSpedizione sul DB | Marketplace sul DB | Note |
 | -------- | ------------------ | ---------------------- | --------------- | ------------------- | ------------------- | ----------------- | ---- |
-| Acquisto Amazon ricevuto in tabaccheria tramite Poste | MXP <b> Strada Dogana 45 <br> Milano | Pierluigi Pierini <br> Punto poste Tabaccheria 1660 <br> Via Raffaele Battistini 123 <br> Roma | | Pierluigi Pierini | PosteArrivi | Amazon | |
-| Acquisto Amazon mandato per cortesia dell'esercente al suo indirizzo tramite Poste | MXP <b> Strada Dogana 45 <br> Milano | Pierluigi Pierini <br> Via Raffaele Battistini 123 <br> Roma | | Pierluigi Pierini | Altro | Amazon | non rientra nei servizi della ricevitoria e non viene fatturato, classificarlo come Altro |
+| Acquisto Amazon ricevuto in tabaccheria tramite Poste | MXP <br> Strada Dogana 45 <br> Milano | Pierluigi Pierini <br> Punto poste Tabaccheria 1660 <br> Via Raffaele Battistini 123 <br> Roma | | Pierluigi Pierini | PosteArrivi | Amazon | |
+| Acquisto Amazon mandato per cortesia dell'esercente al suo indirizzo tramite Poste | MXP <br> Strada Dogana 45 <br> Milano | Pierluigi Pierini <br> Via Raffaele Battistini 123 <br> Roma | | Pierluigi Pierini | Altro | Amazon | non rientra nei servizi della ricevitoria e non viene fatturato, classificarlo come Altro |
 | Spedizione Vinted dalla ricevitoria via Poste | Pierluigi Pierini <br> Via Raffaele Battistini 123 <br> Roma | Guglielmo Marconi  <br> Punto poste Tabaccheria 2850 <br> Via Porrettana, 1320 Casalecchio (BO) | Pierluigi Pierini | Guglielmo Marconi | PostePartenze | Vinted | pacco in partenza |
 
 - Se per la corretta identificazione delle etichette è necessario conoscere i dati della ricevitoria che usa l'App permettene la configurazione in un apposito menù di amministrazione
