@@ -20,11 +20,11 @@ gli scan sono stati presi con "Fax e scanner di Windows" e seguenti opzioni
 
 
 La seguente riporta i valori corretti letti a mano dalle etichette
-| File     | Tipo Spedizione |     DA FINIRE ......                         |
-| ----     | -----------     | ---------------------                        |
-| 01_S_... | Poste_Arrivi    | _X_R_RTZF239C63802010.tif                    |
-| 02_S_... | X_X             | _Amazon_A_IT3482510720.tif                   |
-| 03_S_... | X_X             | _X_A_IT2657547993.tif                        |
+| File     | Tipo Servizio   |   |   DA FINIRE ......                         |
+| ----     | -----------     | ---- | -----------------                        |
+| 01_S_... | Poste           | Arrivi      | _X_R_RTZF239C63802010.tif                    |
+| 02_S_... | <non lo so>     | <non lo so> | _Amazon_A_IT3482510720.tif                   |
+| 03_S_... | <non lo so >    | <non lo so> |_X_A_IT2657547993.tif                        |
 | 04_F_... | Poste_Partenze  | _Vinted_R_RTZ1UW1WEZAKC8S6.pdf               |
 | 05_F_... | Poste_Partenze  | _Vinted_R_1UW1WEZAKB6JL.pdf                  |
 | 06_F_... | Poste_Partenze  | _Vinted_R_RTZ1UW1WEZAKB5VK.pdf               |
