@@ -20,27 +20,30 @@ gli scan sono stati presi con "Fax e scanner di Windows" e seguenti opzioni
 
 
 La seguente riporta i valori corretti letti a mano dalle etichette
-| File     | Servizio Spedizione |  Tipo     | Marketplace |   DA FINIRE ......                         |
-| ----     | ------------------- | --------- | ----------- | ------                        |
-| 01_S_... | Poste               | Arrivi    |             | R_RTZF239C63802010.tif                    |
-| 02_S_... |                     |           | Amazon      | _A_IT3482510720.tif                   |
-| 03_S_... |                     |           |             | A_IT2657547993.tif                        |
-| 04_F_... | Poste               | Partenze  | Vinted      | _R_RTZ1UW1WEZAKC8S6.pdf               |
-| 05_F_... | Poste               | Partenze  | Vinted      | _R_1UW1WEZAKB6JL.pdf                  |
-| 06_F_... | Poste               | Partenze  | Vinted      | _R_RTZ1UW1WEZAKB5VK.pdf               |
-| 07_F_... | InPost              | Partenze  | Subito      | _R_820159547623875031481519.pdf       |
-| 08_S_... | Poste               | Arrivi    | Amazon      | _R_RTZF239C65118791.tif               |
-| 09_P_... | Poste               | Arrivi    | Vinted      | _R_RTZ1UW1WEZAQAF3K.jpg               |
-| 10_P_... | Poste               | Arrivi    | Vinted      | _R_RTZ1UW1WEZAPIG3Z.jpg               |
-| 11_P_... | Poste               | Arrivi    | Vinted      | _R_RTZ1UW1WEZAOJBCL.jpg               |
-| 12_P_... | Poste               | Arrivi    | Amazon      | _R_RTZF259D92964515.jpg               |
-| 13_P_... | Poste               | Arrivi    | Amazon      | _R_RTZF259D93030815.jpg               |
-| 14_P_... | Poste               | Arrivi    | Zalando     | _RTZ1P73C70979183.jpg                |
-| 15_P_... | Poste               | Partenze  | Zalando     | _R_RVE1UW1OT5AAZ3AV.jpg              |
-| 16_P_... | Poste               | Partenze  |             | R_RTZ1UW1WEZAQYIV1.jpg                    |
-| 17_P_... | Poste               | Partenze  |             | R_JF70059193217.jpg                       |
-| 18_P_... | Poste               | Partenze  |             | R_RTZ1UW1WEZAQXLUF.jpg                    |
-| 19_P_... | Poste               | Arrivi    | Amazon      | _R_RTZF259D90377978.jpg                      |
-| 20_P_... | Poste               | Arrivi    | Amazon      | _R_RTZF239C65118791.jpg                      |
-| 21_P_... | Poste               | Arrivi    | Amazon      | _R_RTZF238D92083019.jpg                      |
+| File     | Servizio Spedizione |  Tipo     | Marketplace | gestione in Ricev 1660 | Codice                    |  Mittente         | Destinatario |
+| ----     | ------------------- | --------- | ----------- | ---------------------- | ------------------------- |  ---------------- | ------------ |
+| 01_S_... | Poste               | Arrivi    |             | SI                     | RTZF239C63802010          |                   | 
+| 02_S_... |                     |           | Amazon      | NO (Altro cortesia)    | IT3482510720              |                   |
+| 03_S_... |                     |           |             | NO (Altro cortesia)    | IT2657547993              |                   |
+| 04_F_... | Poste               | Partenze  | Vinted      | SI                     | RTZ1UW1WEZAKC8S6          | PIERLUIGI PIERINI |
+| 05_F_... | Poste               | Partenze  | Vinted      | SI                     | 1UW1WEZAKB6JL             | PIERLUIGI PIERINI |
+| 06_F_... | Poste               | Partenze  | Vinted      | SI                     | RTZ1UW1WEZAKB5VK          | PIERLUIGI PIERINI |
+| 07_F_... | InPost              | Partenze  | Subito      | SI                     | 820159547623875031481519  | Pierluigi Pierini |
+| 08_S_... | Poste               | Arrivi    | Amazon      | SI                     | RTZF239C65118791          |                   |
+| 09_P_... | Poste               | Arrivi    | Vinted      | SI                     | RTZ1UW1WEZAQAF3K          |                   |
+| 10_P_... | Poste               | Arrivi    | Vinted      | SI                     | RTZ1UW1WEZAPIG3Z          |                   |
+| 11_P_... | Poste               | Arrivi    | Vinted      | SI                     | RTZ1UW1WEZAOJBCL          |                   |
+| 12_P_... | Poste               | Arrivi    | Amazon      | SI                     | RTZF259D92964515          |                   |
+| 13_P_... | Poste               | Arrivi    | Amazon      | SI                     | RTZF259D93030815          |                   |
+| 14_P_... | Poste               | Arrivi    | Zalando     | SI                     | RTZ1P73C70979183          |                   |
+| 15_P_... | Poste               | Partenze  | Zalando     | SI                     | RVE1UW1OT5AAZ3AV          | Anna Veit         | Zalando Italy Srl |
+| 16_P_... | Poste               | Partenze  |             | SI                     | RTZ1UW1WEZAQYIV1          | Alessio Monottoli | Daniele Valenzano |
+| 17_P_... | Poste               | Partenze  |             | SI                     | JF70059193217             | carmela attina    | Amazon SORT       |
+| 18_P_... | Poste               | Partenze  |             | SI                     | RTZ1UW1WEZAQXLUF          | Federica Falessi  | Sandy Ganlath     |
+| 19_P_... | Poste               | Arrivi    | Amazon      | SI                     | RTZF259D90377978          |                   | PIERLUIGI PIERINI |
+| 20_P_... | Poste               | Arrivi    | Amazon      | SI                     | RTZF239C65118791          |                   | PIERLUIGI PIERINI |
+| 21_P_... | Poste               | Arrivi    | Amazon      | SI                     | RTZF238D92083019          |                   | PIERLUIGI PIERINI |
 
+I pacchi in arrivo presso "ricevitoria 1660" hanno l'indicazione della ricevitoria nell'etichetta
+
+I pacchi in partenza tramite "ricevitoria 1660" non hanno l'indicazione della ricevitoria perchè il cliente li porta arbitrariamente per la spedizione; alcune etichette in partwnza sono quindi marcate come afferenti alla ricevitoria solo perchè le ho prese presso l'esercizio
