@@ -47,7 +47,7 @@ Diversi gestori da gestire
 | Codice | Text | stringa alfanumerica che rappresenta il codice del pacco secondo il gestore del servizio | 
 | Marketplace | Text | se rilevabile indica la piattaforma per cui si sta usando il servizio di Spedizione: Amazon, Vinted, Subito, ... |
 | Data Arrivo | Date | data in cui il pacco è entrato in ricevitoria tramite l'operazione di "scan e registrazione " |
-| Da          | Text | chi ha consegnato il pacco in ricevitoria: vuoto per gli ARRIVI; nome della persona che spedisce per le PARTENZE |
+| Da          | Text | chi ha consegnato il pacco in ricevitoria: vuoto per alcuni ARRIVI (es Amazon) e valorizzato per altri (es Vinted); nome della persona che spedisce per le PARTENZE |
 | Data Uscita | Date | data in cui il pacco esce dalla ricevitoria tramite l'operazione di "uscita" |
 | A           | Text | destinatario del pacco: nome del cliente che deve ricevere il pacco per gli ARRIVI; nome del destinatario della spedizione per le PARTENZE |
 | Note        | Text | eventuali altri note inserite dall'esercente |
