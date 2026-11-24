@@ -20,6 +20,7 @@ gli scan sono stati presi con "Fax e scanner di Windows" e seguenti opzioni
 
 
 La seguente riporta i valori corretti letti a mano dalle etichette
+
 | File     | Servizio Spedizione |  Tipo     | Marketplace | gestione in Ricev 1660 | Codice                    |  Mittente         | Destinatario        |
 | ----     | ------------------- | --------- | ----------- | ---------------------- | ------------------------- |  ---------------- | ------------------- |
 | 01_S_... | Poste               | Arrivi    |             | SI                     | RTZF239C63802010          |                   | PIERLUIGI PIERINI   | 
